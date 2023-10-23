@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">3310_Group8_GSGD</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Welcome</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="login">Login</string>
+    <string name="create">Create Account</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Welcome to Good Seeds, Good Deeds! Please log in or create an account to continue :)
+    </string>
+</resources>
