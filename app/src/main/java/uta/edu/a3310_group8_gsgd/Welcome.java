@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import uta.edu.a3310_group8_gsgd.databinding.FragmentSecondBinding;
+import uta.edu.a3310_group8_gsgd.databinding.FragmentWelcomeBinding;
 
-public class SecondFragment extends Fragment {
+public class Welcome extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentWelcomeBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentWelcomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,11 +29,18 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
+        binding.signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                NavHostFragment.findNavController(Welcome.this)
+                        .navigate(R.id.action_FirstFragment_to_loginFragment);
+            }
+        });
+        binding.create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(Welcome.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
     }

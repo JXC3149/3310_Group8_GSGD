@@ -3,26 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/Welcome">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="uta.edu.a3310_group8_gsgd.FirstFragment"
+        android:id="@+id/Welcome"
+        android:name="uta.edu.a3310_group8_gsgd.Welcome"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_welcome">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_loginFragment"
+            app:destination="@id/Login" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="uta.edu.a3310_group8_gsgd.SecondFragment"
+        android:name="uta.edu.a3310_group8_gsgd.CreateAccount"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        tools:layout="@layout/fragment_createaccount">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SecondFragment_to_loginFragment"
+            app:destination="@id/Login" />
     </fragment>
+    <fragment
+        android:id="@+id/Login"
+        android:name="uta.edu.a3310_group8_gsgd.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="uta.edu.a3310_group8_gsgd.Home"
+        android:label="Home" >
+        <action
+            android:id="@+id/logout"
+            app:destination="@id/Welcome" />
+        <action
+            android:id="@+id/action_home2_to_placeholder"
+            app:destination="@id/Profile" />
+        <action
+            android:id="@+id/action_home2_to_Seed_Test"
+            app:destination="@id/Seed_Test" />
+        <action
+            android:id="@+id/action_home2_to_Seed_Menu"
+            app:destination="@id/Seed_Menu" />
+        <action
+            android:id="@+id/action_home2_to_placeholder4"
+            app:destination="@id/idunno" />
+    </fragment>
+    <fragment android:id="@+id/Profile" />
+    <fragment android:id="@+id/Seed_Test" />
+    <fragment android:id="@+id/Seed_Menu" />
+    <fragment android:id="@+id/idunno" />
 </navigation>
