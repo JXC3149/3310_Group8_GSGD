@@ -39,7 +39,8 @@
     <fragment
         android:id="@+id/home2"
         android:name="uta.edu.a3310_group8_gsgd.Home"
-        android:label="Home" >
+        android:label="Home" 
+	  tools:layout="@layout/homepage">
         <action
             android:id="@+id/logout"
             app:destination="@id/Welcome" />
