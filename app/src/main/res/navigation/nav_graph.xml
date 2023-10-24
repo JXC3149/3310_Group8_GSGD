@@ -55,10 +55,18 @@
             app:destination="@id/Seed_Menu" />
         <action
             android:id="@+id/action_home2_to_placeholder4"
-            app:destination="@id/idunno" />
+            app:destination="@id/Database" />
     </fragment>
     <fragment android:id="@+id/Profile" />
-    <fragment android:id="@+id/Seed_Test" />
-    <fragment android:id="@+id/Seed_Menu" />
-    <fragment android:id="@+id/idunno" />
+    <fragment android:id="@+id/Seed_Test" >
+        <action
+            android:id="@+id/action_Seed_Test_to_idunno"
+            app:destination="@id/Database" />
+    </fragment>
+    <fragment android:id="@+id/Seed_Menu" >
+        <action
+            android:id="@+id/action_Seed_Menu_to_idunno"
+            app:destination="@id/Database" />
+    </fragment>
+    <fragment android:id="@+id/Database" />
 </navigation>
