@@ -8,6 +8,9 @@
     <string name="login">Login</string>
     <string name="create">Create Account</string>
     <string name="previous">Previous</string>
+    <string name="profile">Profile</string>
+    <string name="seed_menu">Seed Menu</string>
+    <string name="test_seed">Test Seed</string>
 
     <string name="lorem_ipsum">
         Welcome to Good Seeds, Good Deeds! Please log in or create an account to continue :)
