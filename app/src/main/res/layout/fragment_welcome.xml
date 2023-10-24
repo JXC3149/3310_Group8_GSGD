@@ -12,10 +12,7 @@
         android:padding="16dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <!--        Login Button-->
-
         <!--        Create Account button-->
-
         <Button
             android:id="@+id/create"
             android:layout_width="148dp"
@@ -29,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
 
+        <!--        Login Button-->
         <Button
             android:id="@+id/signin"
             android:layout_width="94dp"
