@@ -36,6 +36,14 @@ public class CreateAccount extends Fragment {
                         .navigate(R.id.action_SecondFragment_to_loginFragment);
             }
         });
+
+        binding.buttonSecond2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(CreateAccount.this)
+                        .navigate(R.id.action_SecondFragment_to_loginFragment);
+            }
+        });
     }
 
     @Override
