@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Home">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="305dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Seed Health!"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="48dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seed Menu"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Seed"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="401dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
