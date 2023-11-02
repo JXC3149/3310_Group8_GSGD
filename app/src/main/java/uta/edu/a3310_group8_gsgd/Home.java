@@ -15,7 +15,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import uta.edu.a3310_group8_gsgd.databinding.HomeBinding;
 
-
 public class Home extends Fragment{
     private HomeBinding binding;
 

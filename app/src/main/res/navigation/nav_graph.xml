@@ -69,4 +69,7 @@
             app:destination="@id/Database" />
     </fragment>
     <fragment android:id="@+id/Database" />
+    <action
+        android:id="@+id/action_global_Welcome"
+        app:destination="@id/Welcome" />
 </navigation>
