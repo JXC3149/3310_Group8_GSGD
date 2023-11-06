@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_home2_to_placeholder4"
             app:destination="@id/Database" />
+        <action
+            android:id="@+id/action_home2_to_Welcome"
+            app:destination="@id/Welcome" />
     </fragment>
     <fragment android:id="@+id/Profile" />
     <fragment android:id="@+id/Seed_Test" >
