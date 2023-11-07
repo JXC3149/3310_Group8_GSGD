@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469942860986",
+    "project_id": "good-seeds-good-deeds",
+    "storage_bucket": "good-seeds-good-deeds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469942860986:android:ca5d1877e7173d29d55683",
+        "android_client_info": {
+          "package_name": "uta.edu.a3310_group8_gsgd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdU1vTe64Q7SOmku3qUq55su8_8JZvsg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
