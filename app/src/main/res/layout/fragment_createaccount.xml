@@ -14,12 +14,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="81dp">
         <!--        android:padding="16dp">-->
 
         <EditText
-            android:id="@+id/username6"
+            android:id="@+id/create_password"
             android:layout_width="315dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
@@ -31,48 +31,48 @@
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username5" />
+            app:layout_constraintTop_toBottomOf="@+id/create_email" />
 
         <EditText
-            android:id="@+id/username5"
+            android:id="@+id/create_email"
             android:layout_width="315dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:autofillHints="@string/prompt_email"
-            android:hint="Email"
+            android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username4" />
+            app:layout_constraintTop_toBottomOf="@+id/create_lname" />
 
 
         <EditText
-            android:id="@+id/username4"
+            android:id="@+id/create_lname"
             android:layout_width="315dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:autofillHints="@string/prompt_email"
-            android:hint="Last Name"
+            android:hint="@string/prompt_lname"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username3" />
+            app:layout_constraintTop_toBottomOf="@+id/create_fname" />
 
         <EditText
-            android:id="@+id/username3"
+            android:id="@+id/create_fname"
             android:layout_width="315dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="24dp"
             android:autofillHints="@string/prompt_email"
-            android:hint="First Name"
+            android:hint="@string/prompt_fname"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button_second"
+            android:id="@+id/button_create_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -88,23 +88,11 @@
             android:text="@string/create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username6"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/create_password"
+            app:layout_constraintVertical_bias="0.048" />
 
-        <Button
-            android:id="@+id/button_second2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="380dp"
-            android:text="@string/create"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username6"
-            app:layout_constraintVertical_bias="0.6" />
 
         <TextView
             android:id="@+id/textview_second"
@@ -112,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:gravity="center"
-            android:text="Enter your information below to create an account."
+            android:text="@string/prompt_create_account"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"

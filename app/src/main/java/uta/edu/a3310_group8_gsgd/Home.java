@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,10 +15,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import uta.edu.a3310_group8_gsgd.databinding.HomeBinding;
+import uta.edu.a3310_group8_gsgd.ui.login.LoginFragment;
 
 public class Home extends Fragment{
     private HomeBinding binding;
+    FirebaseAuth auth;
+    Button btn_logout;
+    FirebaseUser user;
 
     @Override
     public View onCreateView(
@@ -25,6 +34,27 @@ public class Home extends Fragment{
     ) {
 
         binding = HomeBinding.inflate(inflater, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        btn_logout = binding.btnLogout;
+        user = auth.getCurrentUser();
+        if (user == null) {
+            NavHostFragment.findNavController(Home.this)
+                    .navigate(R.id.action_home2_to_Welcome);
+        }
+        else {
+            //get email maybe
+        }
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                NavHostFragment.findNavController(Home.this)
+                        .navigate(R.id.action_home2_to_Welcome);
+            }
+        });
+
         return binding.getRoot();
 
     }
