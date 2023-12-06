@@ -73,6 +73,8 @@ public class CreateAccount extends Fragment {
                                             Toast.LENGTH_SHORT).show();
                                     NavHostFragment.findNavController(CreateAccount.this)
                                             .navigate(R.id.action_SecondFragment_to_loginFragment);
+                                    Toast.makeText(getContext(), "Welcome, " + mAuth.getCurrentUser().getEmail() + "!",
+                                            Toast.LENGTH_SHORT).show();
 
                                 } else {
                                     // If sign in fails, display a message to the user.
