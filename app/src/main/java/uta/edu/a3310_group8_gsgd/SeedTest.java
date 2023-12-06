@@ -20,9 +20,18 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
+import java.util.Objects;
 
 import uta.edu.a3310_group8_gsgd.databinding.FragmentSeedTestBinding;
+import uta.edu.a3310_group8_gsgd.ml.MobilenetV110224Quant;
 
 
 public class SeedTest extends Fragment {
@@ -42,10 +51,24 @@ public class SeedTest extends Fragment {
 
         binding = FragmentSeedTestBinding.inflate(inflater, container, false);
 
+        String[] labels = new String [1001];
+        int count = 0;
+        try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getContext().getAssets().open("labels.txt")));
+                String line = bufferedReader.readLine();
+                while (line != null) {
+                    labels[count] = line;
+                    count++;
+                    line = bufferedReader.readLine();
+                }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         btn_logout = binding.btnLogout;
         btn_test_image = binding.btnTestImage;
         btn_open_gallery = binding.btnOpenGallery;
         imageView = binding.testImageView;
+        txt_result = binding.resultTextView;
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +85,9 @@ public class SeedTest extends Fragment {
             @Override
             public void onClick(View v) {
 
-                /*
+
                 try {
-                    MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(getActivity());
+                    MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(requireActivity());
 
                     // Creates inputs for reference.
                     TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
@@ -76,7 +99,7 @@ public class SeedTest extends Fragment {
                     MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
                     TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
-                    txt_result.setText(outputFeature0.getFloatArray()[1000]+"");
+                    txt_result.setText(labels[getMax(outputFeature0.getFloatArray())]+"");
 
                     // Releases model resources if no longer used.
                     model.close();
@@ -84,7 +107,7 @@ public class SeedTest extends Fragment {
                     // TODO Handle the exception
                 }
 
-                 */
+
             }
         });
 
@@ -117,6 +140,15 @@ public class SeedTest extends Fragment {
 
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    int getMax(float[] arr) {
+        int max = 0;
+        for (int i=0; i < arr.length; i++) {
+            if (arr[i] > arr[max])
+                max = i;
+        }
+        return max;
     }
 
     @Override

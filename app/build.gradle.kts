@@ -51,11 +51,15 @@ dependencies {
     // Tensorflow Lite dependencies
     implementation("org.tensorflow:tensorflow-lite-task-vision-play-services:0.4.2")
     implementation("com.google.android.gms:play-services-tflite-gpu:16.2.0")
-    //implementation("org.tensorflow:tensorflow-lite-support:0.1.0") causes duplicate dependency issue
+    //implementation("org.tensorflow:tensorflow-lite-support:0.1.0") //causes duplicate dependency issue
     implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
     implementation("com.google.firebase:firebase-auth:22.2.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation("org.tensorflow:tensorflow-lite:+")
+    implementation("org.tensorflow:tensorflow-lite-gpu:+")
+
 }
