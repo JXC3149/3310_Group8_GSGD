@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -39,6 +40,8 @@ public class SeedTest extends Fragment {
                 FirebaseAuth.getInstance().signOut();
                 NavHostFragment.findNavController(SeedTest.this)
                         .navigate(R.id.action_seedTest_to_Welcome);
+                Toast.makeText(getActivity(), "Logout Successful!",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 

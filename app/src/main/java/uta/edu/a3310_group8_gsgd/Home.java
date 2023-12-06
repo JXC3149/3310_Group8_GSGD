@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -23,6 +22,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -50,6 +50,7 @@ public class Home extends Fragment{
     Button btn_test_seed;
     Button btn_open_gallery;
     Button btn_pro;
+    Button btn_seedTest;
     FirebaseUser user;
 
     TextView txt_result;
@@ -82,6 +83,7 @@ public class Home extends Fragment{
         txt_result = binding.testOutput;
         imageView = binding.imageView;
         btn_pro = binding.button;
+        btn_seedTest = binding.button3;
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
@@ -97,6 +99,8 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_Welcome);
+                Toast.makeText(getActivity(), "Logout Successful!",
+                        Toast.LENGTH_SHORT).show();
             }
         });
         btn_pro.setOnClickListener(new View.OnClickListener() {
