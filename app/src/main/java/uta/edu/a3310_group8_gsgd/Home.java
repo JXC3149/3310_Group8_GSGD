@@ -106,7 +106,7 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
 */
                 NavHostFragment.findNavController(Home.this)
-                        .navigate(R.id.action_home2_to_placeholder);
+                        .navigate(R.id.action_home2_to_placeholder4);
             }
         });
 

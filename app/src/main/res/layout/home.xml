@@ -72,14 +72,13 @@
         android:id="@+id/testOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="text"
         android:text="Result: "
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_open_gallery" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -96,10 +95,11 @@
         android:id="@+id/btn_open_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="192dp"
         android:text="Open Gallery"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_test_seed"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
