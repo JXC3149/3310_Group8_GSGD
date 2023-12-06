@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -50,6 +52,8 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_Welcome);
+                Toast.makeText(getActivity(), "Logout Successful!",
+                        Toast.LENGTH_SHORT).show();
             }
         });
         btn_pro.setOnClickListener(new View.OnClickListener() {
