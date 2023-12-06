@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -53,21 +55,6 @@ public class Home extends Fragment{
     Button btn_seedTest;
     FirebaseUser user;
 
-    TextView txt_result;
-    Bitmap bitmap;
-    ImageView imageView;
-
-    public static final int INPUT_SIZE = 224;
-    public static final int IMAGE_MEAN = 128;
-    public static final float IMAGE_STD = 128.0f;
-    public static final String INPUT_NAME = "input";
-    public static final String OUTPUT_NAME = "final_result";
-    public static final String MODEL_FILE = "file:///android_asset/rounded_graph.pb";
-    public static final String LABEL_FILE = "file:///android_asset/retrained_labels.txt";
-
-
-    public Executor executor = Executors.newSingleThreadExecutor();
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -79,11 +66,7 @@ public class Home extends Fragment{
         auth = FirebaseAuth.getInstance();
         btn_logout = binding.btnLogout;
         btn_test_seed = binding.btnTestSeed; //why does this not want the underscores????
-        btn_open_gallery = binding.btnOpenGallery;
-        txt_result = binding.testOutput;
-        imageView = binding.imageView;
         btn_pro = binding.button;
-        btn_seedTest = binding.button3;
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
@@ -110,49 +93,16 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
 */
                 NavHostFragment.findNavController(Home.this)
-                        .navigate(R.id.action_home2_to_placeholder4);
+                        .navigate(R.id.action_home2_to_profile);
             }
         });
 
         btn_test_seed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NavHostFragment.findNavController(Home.this)
-                        //.navigate(R.id.action_home2_to_Seed_Test);
-                /*
+                NavHostFragment.findNavController(Home.this)
+                        .navigate(R.id.action_home2_to_Seed_Test);
 
-                try {
-                    MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(getActivity());
-
-                    // Creates inputs for reference.
-                    TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
-
-                    bitmap = Bitmap.createScaledBitmap(bitmap,224, 224, true);
-                    inputFeature0.loadBuffer(TensorImage.fromBitmap(bitmap).getBuffer());
-
-                    // Runs model inference and gets result.
-                    MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
-                    TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
-
-                    txt_result.setText(outputFeature0.getFloatArray()[1000]+"");
-
-                    // Releases model resources if no longer used.
-                    model.close();
-                } catch (IOException e) {
-                    // TODO Handle the exception
-                }
-
-                 */
-            }
-        });
-
-        btn_open_gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, 5);
             }
         });
 
@@ -160,22 +110,6 @@ public class Home extends Fragment{
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 5) {
-            if (data != null) {
-                Uri uri = data.getData();
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getActivity().getContentResolver(), uri);
-                    imageView.setImageBitmap(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
     @Override
     public void onDestroyView() {
