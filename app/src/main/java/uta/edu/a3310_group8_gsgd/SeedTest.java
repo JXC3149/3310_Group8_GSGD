@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.checkerframework.checker.index.qual.NonNegative;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -27,8 +29,6 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
-import java.util.Objects;
 
 import uta.edu.a3310_group8_gsgd.databinding.FragmentSeedTestBinding;
 import uta.edu.a3310_group8_gsgd.ml.MobilenetV110224Quant;
@@ -85,26 +85,28 @@ public class SeedTest extends Fragment {
             @Override
             public void onClick(View v) {
 
+                if (bitmap != null)
+                {
+                    try {
+                        MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(requireActivity());
 
-                try {
-                    MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(requireActivity());
+                        // Creates inputs for reference.
+                        TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
 
-                    // Creates inputs for reference.
-                    TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
+                        bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true);
+                        inputFeature0.loadBuffer(TensorImage.fromBitmap(bitmap).getBuffer());
 
-                    bitmap = Bitmap.createScaledBitmap(bitmap,224, 224, true);
-                    inputFeature0.loadBuffer(TensorImage.fromBitmap(bitmap).getBuffer());
+                        // Runs model inference and gets result.
+                        MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
+                        TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
-                    // Runs model inference and gets result.
-                    MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
-                    TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+                        txt_result.setText(labels[getMax(outputFeature0.getFloatArray())] + "");
 
-                    txt_result.setText(labels[getMax(outputFeature0.getFloatArray())]+"");
-
-                    // Releases model resources if no longer used.
-                    model.close();
-                } catch (IOException e) {
-                    // TODO Handle the exception
+                        // Releases model resources if no longer used.
+                        model.close();
+                    } catch (IOException e) {
+                        // TODO Handle the exception
+                    }
                 }
 
 
