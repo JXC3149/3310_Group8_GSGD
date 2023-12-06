@@ -49,6 +49,7 @@ public class Home extends Fragment{
     Button btn_logout;
     Button btn_test_seed;
     Button btn_open_gallery;
+    Button btn_pro;
     FirebaseUser user;
 
     TextView txt_result;
@@ -80,6 +81,7 @@ public class Home extends Fragment{
         btn_open_gallery = binding.btnOpenGallery;
         txt_result = binding.testOutput;
         imageView = binding.imageView;
+        btn_pro = binding.button;
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
@@ -95,6 +97,16 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_Welcome);
+            }
+        });
+        btn_pro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+/*
+                FirebaseAuth.getInstance().signOut();
+*/
+                NavHostFragment.findNavController(Home.this)
+                        .navigate(R.id.action_home2_to_placeholder);
             }
         });
 
