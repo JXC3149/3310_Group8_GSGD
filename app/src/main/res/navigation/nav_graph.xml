@@ -45,11 +45,11 @@
             android:id="@+id/logout"
             app:destination="@id/Welcome" />
         <action
-            android:id="@+id/action_home2_to_placeholder"
+            android:id="@+id/action_home2_to_profile"
             app:destination="@id/profile" />
         <action
             android:id="@+id/action_home2_to_Seed_Test"
-            app:destination="@id/Seed_Test" />
+            app:destination="@id/seedTest" />
         <action
             android:id="@+id/action_home2_to_Seed_Menu"
             app:destination="@id/Seed_Menu" />
@@ -60,15 +60,13 @@
             android:id="@+id/action_home2_to_Welcome"
             app:destination="@id/Welcome" />
     </fragment>
-    <fragment android:id="@+id/Seed_Test" >
-        <action
-            android:id="@+id/action_Seed_Test_to_idunno"
-            app:destination="@id/Database" />
-    </fragment>
     <fragment android:id="@+id/Seed_Menu" >
         <action
             android:id="@+id/action_Seed_Menu_to_idunno"
             app:destination="@id/Database" />
+        <action
+            android:id="@+id/action_Seed_Menu_to_seedTest"
+            app:destination="@id/seedTest" />
     </fragment>
     <fragment android:id="@+id/Database" />
     <action
@@ -78,5 +76,21 @@
         android:id="@+id/profile"
         android:name="uta.edu.a3310_group8_gsgd.Profile"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_Welcome"
+            app:destination="@id/Welcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/seedTest"
+        android:name="uta.edu.a3310_group8_gsgd.SeedTest"
+        android:label="Seed Test"
+        tools:layout="@layout/fragment_seed_test">
+        <action
+            android:id="@+id/action_seedTest_to_Database"
+            app:destination="@id/Database" />
+        <action
+            android:id="@+id/action_seedTest_to_Welcome"
+            app:destination="@id/Welcome" />
+    </fragment>
 </navigation>
