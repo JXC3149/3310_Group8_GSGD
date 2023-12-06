@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+/*        binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Logout Complete", Snackbar.LENGTH_LONG)
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 navController
                         .navigate(R.id.action_global_Welcome);
             }
-        });
+        });*/
     }
 
     @Override

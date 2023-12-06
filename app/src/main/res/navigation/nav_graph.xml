@@ -46,7 +46,7 @@
             app:destination="@id/Welcome" />
         <action
             android:id="@+id/action_home2_to_placeholder"
-            app:destination="@id/Profile" />
+            app:destination="@id/profile" />
         <action
             android:id="@+id/action_home2_to_Seed_Test"
             app:destination="@id/Seed_Test" />
@@ -60,7 +60,6 @@
             android:id="@+id/action_home2_to_Welcome"
             app:destination="@id/Welcome" />
     </fragment>
-    <fragment android:id="@+id/Profile" />
     <fragment android:id="@+id/Seed_Test" >
         <action
             android:id="@+id/action_Seed_Test_to_idunno"
@@ -75,4 +74,9 @@
     <action
         android:id="@+id/action_global_Welcome"
         app:destination="@id/Welcome" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="uta.edu.a3310_group8_gsgd.Profile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

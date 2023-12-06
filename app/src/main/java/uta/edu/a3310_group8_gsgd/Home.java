@@ -25,6 +25,7 @@ public class Home extends Fragment{
     private HomeBinding binding;
     FirebaseAuth auth;
     Button btn_logout;
+    Button btn_pro;
     FirebaseUser user;
 
     @Override
@@ -37,6 +38,7 @@ public class Home extends Fragment{
 
         auth = FirebaseAuth.getInstance();
         btn_logout = binding.btnLogout;
+        btn_pro = binding.button;
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
@@ -52,6 +54,16 @@ public class Home extends Fragment{
                 FirebaseAuth.getInstance().signOut();
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_Welcome);
+            }
+        });
+        btn_pro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+/*
+                FirebaseAuth.getInstance().signOut();
+*/
+                NavHostFragment.findNavController(Home.this)
+                        .navigate(R.id.action_home2_to_placeholder);
             }
         });
 
