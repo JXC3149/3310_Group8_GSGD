@@ -68,5 +68,10 @@ dependencies {
     // Add the dependency for the Realtime Database library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-database")
-
+    // Required -- JUnit 4 framework
+    testImplementation ("junit:junit:4.12")
+    // Optional -- Robolectric environment
+    testImplementation ("androidx.test:core:1.0.0")
+    // Optional -- Mockito framework
+    testImplementation ("org.mockito:mockito-core:1.10.19")
 }
