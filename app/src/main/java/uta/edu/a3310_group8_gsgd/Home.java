@@ -54,13 +54,12 @@ import uta.edu.a3310_group8_gsgd.ui.login.LoginFragment;
 
 
 public class Home extends Fragment{
-    private HomeBinding binding;
-    FirebaseAuth auth;
     Button btn_logout;
     Button btn_test_seed;
     Button btn_open_gallery;
     Button btn_pro;
-    Button btn_seedTest;
+    private HomeBinding binding;
+    FirebaseAuth auth;
     FirebaseUser user;
 
     @Override
@@ -72,10 +71,6 @@ public class Home extends Fragment{
         binding = HomeBinding.inflate(inflater, container, false);
 
         auth = FirebaseAuth.getInstance();
-        btn_logout = binding.btnLogout;
-        btn_test_seed = binding.btnTestSeed; //why does this not want the underscores????
-        btn_pro = binding.button;
-
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
@@ -85,6 +80,10 @@ public class Home extends Fragment{
 
             //get email maybe
         }
+
+        btn_logout = binding.btnLogout;
+        btn_test_seed = binding.btnTestSeed; //why does this not want the underscores????
+        btn_pro = binding.button;
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override

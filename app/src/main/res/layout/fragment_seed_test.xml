@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/btn_test_image"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:text="Test image"
@@ -31,9 +31,8 @@
 
     <Button
         android:id="@+id/btn_open_gallery"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
         android:text="Open Gallery"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_test_image"
@@ -55,11 +54,13 @@
         android:id="@+id/result_textView"
         android:layout_width="172dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="64dp"
         android:text=""
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_open_gallery"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

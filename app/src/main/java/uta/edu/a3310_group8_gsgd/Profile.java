@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import uta.edu.a3310_group8_gsgd.databinding.FragmentProfileBinding;
+import uta.edu.a3310_group8_gsgd.databinding.HomeBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +27,9 @@ public class Profile extends Fragment {
     private FragmentProfileBinding binding;
     Button btn_logout;
     Button btn_home;
+    TextView textView;
+    FirebaseAuth auth;
+    FirebaseUser user;
 
     @Override
     public View onCreateView(
@@ -34,10 +39,26 @@ public class Profile extends Fragment {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        if (user == null) {
+            NavHostFragment.findNavController(Profile.this)
+                    .navigate(R.id.action_profile_to_Welcome);
+        }
+        else {
+
+            //get email maybe
+        }
+
         btn_logout = binding.btnLogout;
         btn_home = binding.btnHome;
+        textView = binding.textView;
 
-            btn_logout.setOnClickListener(new View.OnClickListener() {
+
+
+        textView.setText(user.getEmail());
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     FirebaseAuth.getInstance().signOut();
