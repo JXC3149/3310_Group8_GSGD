@@ -24,6 +24,7 @@ import uta.edu.a3310_group8_gsgd.databinding.FragmentProfileBinding;
 public class Profile extends Fragment {
     private FragmentProfileBinding binding;
     Button btn_logout;
+    Button btn_home;
 
     @Override
     public View onCreateView(
@@ -34,6 +35,7 @@ public class Profile extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         btn_logout = binding.btnLogout;
+        btn_home = binding.btnHome;
 
             btn_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -46,6 +48,16 @@ public class Profile extends Fragment {
 
                 }
             });
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Home!",
+                        Toast.LENGTH_SHORT).show();
+                NavHostFragment.findNavController(Profile.this)
+                        .navigate(R.id.action_profile_to_home2);
+
+            }
+        });
 
         return binding.getRoot();
 

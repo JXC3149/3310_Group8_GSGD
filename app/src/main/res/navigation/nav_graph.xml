@@ -80,6 +80,9 @@
         <action
             android:id="@+id/action_profile_to_Welcome"
             app:destination="@id/Welcome" />
+        <action
+            android:id="@+id/action_profile_to_home2"
+            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/seedTest"
