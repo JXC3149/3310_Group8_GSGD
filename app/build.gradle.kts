@@ -62,4 +62,11 @@ dependencies {
     implementation("org.tensorflow:tensorflow-lite:+")
     implementation("org.tensorflow:tensorflow-lite-gpu:+")
 
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+
+    // Add the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-database")
+
 }

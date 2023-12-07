@@ -1,11 +1,13 @@
 package uta.edu.a3310_group8_gsgd;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
@@ -67,12 +75,14 @@ public class Home extends Fragment{
         btn_logout = binding.btnLogout;
         btn_test_seed = binding.btnTestSeed; //why does this not want the underscores????
         btn_pro = binding.button;
+
         user = auth.getCurrentUser();
         if (user == null) {
             NavHostFragment.findNavController(Home.this)
                     .navigate(R.id.action_home2_to_Welcome);
         }
         else {
+
             //get email maybe
         }
 
@@ -92,8 +102,12 @@ public class Home extends Fragment{
 /*
                 FirebaseAuth.getInstance().signOut();
 */
+
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_profile);
+                Toast.makeText(getContext(), "Welcome, " + user.getEmail() + "!\nNeed a change?",
+                        Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -102,6 +116,7 @@ public class Home extends Fragment{
             public void onClick(View v) {
                 NavHostFragment.findNavController(Home.this)
                         .navigate(R.id.action_home2_to_Seed_Test);
+
 
             }
         });

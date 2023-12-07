@@ -108,6 +108,8 @@ public class LoginFragment extends Fragment {
                                             Toast.LENGTH_SHORT).show();
                                     NavHostFragment.findNavController(LoginFragment.this)
                                             .navigate(R.id.action_loginFragment_to_home2);
+                                    Toast.makeText(getContext(), "Welcome, " + mAuth.getCurrentUser().getEmail() + "!",
+                                            Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getContext(), "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
